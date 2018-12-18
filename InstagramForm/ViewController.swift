@@ -9,10 +9,14 @@
 import UIKit
 import Foundation
 
+
+
+
 class ViewController: UIViewController {
     
-    let emailField: UITextField = {
-        let textField = UITextField()
+
+    let emailField: CustomTextField = {
+        let textField = CustomTextField()
         textField.attributedPlaceholder  = NSAttributedString(string: "E-mail address", attributes: [NSAttributedString.Key.foregroundColor: Colors.whiteOpacity])
         textField.textColor = UIColor.white
         textField.backgroundColor = UIColor(red: 131/255, green: 87/255, blue: 199/255, alpha: 55)
@@ -24,11 +28,12 @@ class ViewController: UIViewController {
         return textField
     }()
     
-    let passwordField: UITextField = {
-       let textField = UITextField()
+    let passwordField: CustomTextField = {
+       let textField = CustomTextField()
        textField.attributedPlaceholder  = NSAttributedString(string: "Password" , attributes: [NSAttributedString.Key.foregroundColor: Colors.whiteOpacity])
        textField.textColor = UIColor.white
        textField.backgroundColor = UIColor(red: 131/255, green: 87/255, blue: 199/255, alpha: 55)
+       textField.isSecureTextEntry = true
        textField.translatesAutoresizingMaskIntoConstraints = false
        return textField
     }()
@@ -59,11 +64,13 @@ class ViewController: UIViewController {
         gradientLayer.frame = view.bounds
         
         view.layer.insertSublayer(gradientLayer, at: 0)
-        
-        setupLabels()
+            setupLabels()
     }
     
+
     func setupLabels(){
+        
+        let guide = view.safeAreaLayoutGuide
   
         // StackView Config
         let arrangedSubviews: [UIView] = [emailField,passwordField, loginButton]
@@ -74,13 +81,16 @@ class ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
+        
         // Auto-Layout Anchors
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -30).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 187).isActive = true
+
     }
-
-
-}
+    
+   
+    }
+    
 
