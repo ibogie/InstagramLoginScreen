@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D333D1CC21C99A1A00A3BF06 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D333D1CB21C99A1A00A3BF06 /* Roboto-Regular.ttf */; };
+		D333D1CE21C99A2900A3BF06 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D333D1CD21C99A2900A3BF06 /* Roboto-Bold.ttf */; };
 		D39D809821C46B160007FFC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D809721C46B160007FFC0 /* AppDelegate.swift */; };
 		D39D809A21C46B160007FFC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D809921C46B160007FFC0 /* ViewController.swift */; };
 		D39D809D21C46B160007FFC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39D809B21C46B160007FFC0 /* Main.storyboard */; };
@@ -15,6 +17,7 @@
 		D39D80AD21C46B180007FFC0 /* InstagramFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D80AC21C46B180007FFC0 /* InstagramFormTests.swift */; };
 		D39D80B821C46B180007FFC0 /* InstagramFormUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D80B721C46B180007FFC0 /* InstagramFormUITests.swift */; };
 		D39D810221C5BE6C0007FFC0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D810121C5BE6C0007FFC0 /* Colors.swift */; };
+		D39D810421C83AAC0007FFC0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D810321C83AAC0007FFC0 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D333D1CB21C99A1A00A3BF06 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D333D1CD21C99A2900A3BF06 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		D39D809421C46B160007FFC0 /* InstagramForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39D809721C46B160007FFC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D39D809921C46B160007FFC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		D39D80B721C46B180007FFC0 /* InstagramFormUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramFormUITests.swift; sourceTree = "<group>"; };
 		D39D80B921C46B180007FFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D39D810121C5BE6C0007FFC0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D39D810321C83AAC0007FFC0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D333D1CA21C99A0200A3BF06 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D333D1CD21C99A2900A3BF06 /* Roboto-Bold.ttf */,
+				D333D1CB21C99A1A00A3BF06 /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		D39D808B21C46B160007FFC0 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +114,9 @@
 		D39D809621C46B160007FFC0 /* InstagramForm */ = {
 			isa = PBXGroup;
 			children = (
+				D333D1CA21C99A0200A3BF06 /* Fonts */,
 				D39D809721C46B160007FFC0 /* AppDelegate.swift */,
+				D39D810321C83AAC0007FFC0 /* CustomTextField.swift */,
 				D39D809921C46B160007FFC0 /* ViewController.swift */,
 				D39D810121C5BE6C0007FFC0 /* Colors.swift */,
 				D39D809B21C46B160007FFC0 /* Main.storyboard */,
@@ -234,6 +251,8 @@
 			files = (
 				D39D80A221C46B180007FFC0 /* LaunchScreen.storyboard in Resources */,
 				D39D809F21C46B180007FFC0 /* Assets.xcassets in Resources */,
+				D333D1CE21C99A2900A3BF06 /* Roboto-Bold.ttf in Resources */,
+				D333D1CC21C99A1A00A3BF06 /* Roboto-Regular.ttf in Resources */,
 				D39D809D21C46B160007FFC0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39D810421C83AAC0007FFC0 /* CustomTextField.swift in Sources */,
 				D39D809A21C46B160007FFC0 /* ViewController.swift in Sources */,
 				D39D810221C5BE6C0007FFC0 /* Colors.swift in Sources */,
 				D39D809821C46B160007FFC0 /* AppDelegate.swift in Sources */,
