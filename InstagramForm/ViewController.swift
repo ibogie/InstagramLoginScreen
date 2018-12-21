@@ -109,25 +109,17 @@ class ViewController: UIViewController {
     }()
 
     
-    let rememberAcLabel: UILabel = {
-       let label = UILabel()
-       label.text = "Don't you have an account ?"
-       label.textAlignment = .center
-       label.textColor = Colors.whiteOpacity
-       label.font = UIFont(name: "Roboto-Regular", size: 17)
-       return label
+    let signupButton: UIButton = {
+      let button = UIButton()
+       let CombinedString = NSMutableAttributedString(string: "Don't you have an account? ", attributes: [NSAttributedString.Key.font
+        : UIFont(name: "Roboto-Regular", size: 16), NSAttributedString.Key.foregroundColor: Colors.whiteOpacity])
+        
+        CombinedString.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: 16), NSAttributedString.Key.foregroundColor: Colors.whiteOpacity]))
+        button.setAttributedTitle(CombinedString, for: .normal)
+        return button
+        
     }()
     
-    let signUpLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Sign Up"
-        label.textColor = Colors.whiteOpacity
-        label.font = UIFont(name: "Roboto-Bold", size: 15)
-        label.setContentHuggingPriority(UILayoutPriority(240), for: .horizontal)
-        return label
-    }()
- 
-
     let gradientLayer: CAGradientLayer = {
        let gradient = CAGradientLayer()
         gradient.colors = [Colors.loginBgColor.cgColor, Colors.secondBgColor.cgColor]
@@ -175,7 +167,7 @@ class ViewController: UIViewController {
         connectionStackView.translatesAutoresizingMaskIntoConstraints = false
         
         // StackView Config
-        let bottomSubview: [UIView] = [rememberAcLabel,signUpLabel]
+        let bottomSubview: [UIView] = [signupButton]
         let bottomStackView = UIStackView(arrangedSubviews: bottomSubview)
         bottomStackView.distribution = .fillProportionally
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
