@@ -60,6 +60,74 @@ class ViewController: UIViewController {
         return button
     }()
     
+    let forgotButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("Don't you remember your Password?", for: .normal)
+        button.setTitleColor(Colors.whiteOpacity, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 15)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let leftSeperator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.15)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let optionLabel: UILabel = {
+       let label = UILabel()
+        label.text = "or"
+        label.textColor = Colors.whiteOpacity
+        label.font = UIFont(name: "Roboto-Regular", size: 17)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let rightSeperator: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.15)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    
+    let facebookIcon: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "facebook-logo"))
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let facebookLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Connect with Facebook"
+        label.font = UIFont(name: "Roboto-Bold", size: 15)
+        label.textColor = UIColor.white
+        return label
+    }()
+
+    
+    let rememberAcLabel: UILabel = {
+       let label = UILabel()
+       label.text = "Don't you have an account ?"
+       label.textAlignment = .center
+       label.textColor = Colors.whiteOpacity
+       label.font = UIFont(name: "Roboto-Regular", size: 17)
+       return label
+    }()
+    
+    let signUpLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sign Up"
+        label.textColor = Colors.whiteOpacity
+        label.font = UIFont(name: "Roboto-Bold", size: 15)
+        label.setContentHuggingPriority(UILayoutPriority(240), for: .horizontal)
+        return label
+    }()
+ 
+
     let gradientLayer: CAGradientLayer = {
        let gradient = CAGradientLayer()
         gradient.colors = [Colors.loginBgColor.cgColor, Colors.secondBgColor.cgColor]
@@ -72,42 +140,89 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-        gradientLayer.frame = view.bounds
-        
         view.layer.insertSublayer(gradientLayer, at: 0)
         
         setupLabels()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
-        
-        
+         gradientLayer.frame = view.bounds
     }
     
 
      func setupLabels(){
         
-        // StackView Config
+        // StackView Config -- Login Section
         let arrangedSubviews: [UIView] = [emailField,passwordField, loginButton]
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.spacing = 17
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //StackView Config -- Below Login Section
+        let optionSubviews: [UIView] = [leftSeperator,optionLabel,rightSeperator]
+        let optionStackView = UIStackView(arrangedSubviews: optionSubviews)
+        optionStackView.alignment = .center
+        optionStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Facebook Connection StackView
+        let connectionSubviews: [UIView] = [facebookIcon, facebookLabel]
+        let connectionStackView = UIStackView(arrangedSubviews: connectionSubviews)
+        connectionStackView.spacing = 9
+        connectionStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // StackView Config
+        let bottomSubview: [UIView] = [rememberAcLabel,signUpLabel]
+        let bottomStackView = UIStackView(arrangedSubviews: bottomSubview)
+        bottomStackView.distribution = .fillProportionally
+        bottomStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Adding views to hierarchy
         view.addSubview(instagramLogo)
         view.addSubview(stackView)
+        view.addSubview(forgotButton)
+        view.addSubview(optionStackView)
+        view.addSubview(connectionStackView)
+        view.addSubview(bottomStackView)
         
-        
+    
         // Auto-Layout Anchors
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -30).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: 187).isActive = true
-        
         instagramLogo.widthAnchor.constraint(equalToConstant: 200).isActive = true
         instagramLogo.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        instagramLogo.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -50).isActive = true
+        instagramLogo.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -35).isActive = true
         instagramLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        stackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -30).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 187).isActive = true
+        
+        forgotButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16).isActive = true
+        forgotButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
+        
+        optionStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        optionStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        optionStackView.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: 25).isActive = true
+        optionStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        leftSeperator.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        leftSeperator.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        rightSeperator.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        rightSeperator.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        
+        connectionStackView.topAnchor.constraint(equalTo: optionStackView.bottomAnchor, constant: 28).isActive = true
+        connectionStackView.centerXAnchor.constraint(equalTo: optionStackView.centerXAnchor).isActive = true
+        facebookIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        facebookIcon.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        
+        bottomStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        bottomStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        bottomStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -45).isActive = true
+
      }
     
    
